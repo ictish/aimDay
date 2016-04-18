@@ -1,5 +1,8 @@
-<?php require_once("config/constants.php");?>
-
 <?php
-header("Location:".$host."/".$app_name."/".$app_folder."/login.php");
+require_once(__DIR__.'/config/constants.php');
+require_once(__DIR__.'/config/db.php');
+require_once(CORE_PATH.'/autoloader.php');
+$app = new Bootstrap();
+
 ?>
+
