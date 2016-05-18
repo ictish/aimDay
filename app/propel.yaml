@@ -1,0 +1,19 @@
+propel:
+    database:
+        connections:
+            default:
+                adapter: mysql
+                classname: Propel\Runtime\Connection\DebugPDO
+                dsn: mysql:host=;dbname=
+                user: 
+                password: 
+                attributes:
+    runtime:
+        defaultConnection: default
+        connections:
+            - default
+    generator:
+        defaultConnection: default
+        connections:
+            - default                
+                

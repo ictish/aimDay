@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" defaultIdMethod="native">
+    
+    <table name="" phpName="">
+        <column name="" type="" required="" primaryKey="" autoIncrement=""/>
+        <column name="" type="" size="" required=""/>
+        <column name="" type="" required="" />
+        <column name="created_at" type="timestamp" required="true" />
+        <column name="updated_at" type="timestamp" required="true" />
+
+        <unique name="UniqueId">
+            <unique-column name="" />
+        </unique>
+
+        <behavior name="validate">
+            <parameter name="rule1" value="{column:  , validator: NotBlank}"/>
+            <parameter name="rule2" value="{column:  , validator: Email}"/>
+            <parameter name="rule3" value="{column:  , validator: NotNull}"/>
+            <parameter name="rule4" value="{column:  , validator: EqualTo, options: {value: }}"/>
+        </behavior>
+
+    </table>
+
+    <table name="" phpName="">
+
+    </table>
+</database>    
