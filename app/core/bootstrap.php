@@ -5,10 +5,10 @@ class Bootstrap
     function __construct()
     {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
-        
+       
         if(empty($url)) {
-            $login = new Login();
-            $login->index();
+            $home = new Home();
+            $home->index();
             return false;
         }
 
@@ -21,8 +21,29 @@ class Bootstrap
         }
 
         $url_count = count($url);
-        $controller = new $url[0]();
+        $controller_url = ucfirst($url[0]);
+        $controller = new $controller_url();
         
+        if(isset($url[1])) {
+            if(method_exists(get_class($controller), $url[1])) {
+                $args = array();
+                if($url_count > 2) {
+                    for($i = 2; $i < $url_count; $i++) {
+                        array_push($args, $url[$i]);
+                    }
+                    $controller->$url[1]($args);
+                } else {
+                    $controller->$url[1]();
+                }
+            } else {
+                echo("Invalid address!");
+                return false;
+            }
+        } else {
+            $controller->index();
+        }
+        
+        /*
         $args = array();
         if($url_count > 2) {
             for($i = 2; $i < $url_count; $i++) {
@@ -36,7 +57,7 @@ class Bootstrap
            } else {
             $controller->index();
            }
-        }            
+        }*/          
     }
 }
 

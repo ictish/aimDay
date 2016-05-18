@@ -6,8 +6,14 @@ class View
         $this->data = array();       
     }
 
-    public function render($name) {
-        require(VIEW_PATH.'/'.$name.'.php');   
+    public function render($name, $mode = false) {
+        if($mode) {
+            require(VIEW_PATH.'/header.php');
+            require(VIEW_PATH.'/'.$name.'.php');
+            require(VIEW_PATH.'/footer.php');
+        } else {    
+            require(VIEW_PATH.'/'.$name.'.php');
+        }
     }
 }
 
